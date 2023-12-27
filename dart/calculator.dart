@@ -5,24 +5,30 @@ void main() {
     print('Lütfen İşlem Giriniz');
     String islem = stdin.readLineSync()!;
 
-    var veri = islem.split(RegExp(r'[+-/x]'));
-
-    if (islem.contains('x')) {
-      int first = int.parse(veri.first);
-      int second = int.parse(veri.last);
-      print('Sonuç: ${first * second}');
-    } else if (islem.contains('+')) {
-      int first = int.parse(veri.first);
-      int second = int.parse(veri.last);
-      print('Sonuç: ${first + second}');
-    } else if (islem.contains('-')) {
-      int first = int.parse(veri.first);
-      int second = int.parse(veri.last);
-      print('Sonuç: ${first - second}');
-    } else if (islem.contains('/')) {
-      int first = int.parse(veri.first);
-      int second = int.parse(veri.last);
-      print('Sonuç: ${first / second}');
+    List veri = islem.split(RegExp(r'[+-/x]'));
+    const errorMessage = 'Düzgün İşlem Yap Sikmim Belanı!!!';
+    try {
+      if (islem.contains('x')) {
+        int first = int.parse(veri.first);
+        int second = int.parse(veri[1]);
+        print('Sonuç: ${first * second}');
+      } else if (islem.contains('+')) {
+        int first = int.parse(veri.first);
+        int second = int.parse(veri[1]);
+        print('Sonuç: ${first + second}');
+      } else if (islem.contains('-')) {
+        int first = int.parse(veri.first);
+        int second = int.parse(veri[1]);
+        print('Sonuç: ${first - second}');
+      } else if (islem.contains('/')) {
+        int first = int.parse(veri.first);
+        int second = int.parse(veri[1]);
+        print('Sonuç: ${first / second}');
+      } else {
+        print(errorMessage);
+      }
+    } catch (e) {
+      print(errorMessage);
     }
   }
 }
