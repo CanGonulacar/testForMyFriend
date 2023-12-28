@@ -8,22 +8,20 @@ void main() {
     List veri = islem.split(RegExp(r'[+-/x]'));
     const errorMessage = 'Düzgün İşlem Yap Sikmim Belanı!!!';
     try {
-      if (islem.contains('x')) {
-        int first = int.parse(veri.first);
-        int second = int.parse(veri[1]);
-        print('Sonuç: ${first * second}');
-      } else if (islem.contains('+')) {
-        int first = int.parse(veri.first);
-        int second = int.parse(veri[1]);
-        print('Sonuç: ${first + second}');
-      } else if (islem.contains('-')) {
-        int first = int.parse(veri.first);
-        int second = int.parse(veri[1]);
-        print('Sonuç: ${first - second}');
-      } else if (islem.contains('/')) {
-        int first = int.parse(veri.first);
-        int second = int.parse(veri[1]);
-        print('Sonuç: ${first / second}');
+      int first = int.parse(veri.first);
+      int second = int.parse(veri[1]);
+      if (veri.length <= 2) {
+        if (islem.contains('x')) {
+          print('Sonuç: ${first * second}');
+        } else if (islem.contains('+')) {
+          print('Sonuç: ${first + second}');
+        } else if (islem.contains('-')) {
+          print('Sonuç: ${first - second}');
+        } else if (islem.contains('/')) {
+          print('Sonuç: ${first / second}');
+        } else {
+          print(errorMessage);
+        }
       } else {
         print(errorMessage);
       }
